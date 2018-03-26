@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculadora
 {
-    class CalculatorController
+    class Calculator
     {
         public float Sumar(float num1, float num2)
         {

@@ -9,11 +9,12 @@ namespace Calculadora
 {
     public class Program
     {
-        public enum ListMenu { Sumar, Restar, Multiplicar, Dividir };
+        public enum ListMenu { Sumar=1, Restar, Multiplicar, Dividir };
+
         static void Main(string[] args)
         {
             bool isInt;
-            CalculatorController Calculadora = new CalculatorController();
+            Calculator Calculadora = new Calculator();
             ListMenu Operacion = ListMenu.Sumar;
             Usuario Usuari = new Usuario();
 
@@ -21,8 +22,8 @@ namespace Calculadora
             {
                 UI.Menu();
                 isInt = Int32.TryParse(Console.ReadLine(), out int opcion_num);
-                opcion_num--;
-                if (isInt && (opcion_num < 4 && opcion_num > -1))
+                //opcion_num--;
+                if (isInt && (opcion_num < 5 && opcion_num > 0))
                 {
                     Operacion = (ListMenu)opcion_num;
 
@@ -46,7 +47,7 @@ namespace Calculadora
                     }
 
                 }
-                if (opcion_num == 4) break;
+                if (opcion_num == 5) break;
             } while (true);    
         }
 

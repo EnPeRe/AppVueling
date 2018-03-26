@@ -15,9 +15,9 @@ namespace Calculadora
         [InlineData(-4, -6, -10)]
         [InlineData(-2, 2, 0)]
         [InlineData(int.MinValue, -1, int.MaxValue)]
-        public void CanAddTheory(int value1, int value2, int expected)
+        public void CanSummTheory(int value1, int value2, int expected)
         {
-            var calculator = new CalculatorController();
+            var calculator = new Calculator();
 
             var result = calculator.Sumar(value1, value2);
 
