@@ -8,7 +8,6 @@ namespace Alumnos
 {
     class UI
     {
-        public static string format;
 
         public static void Menu()
         {
@@ -22,22 +21,22 @@ namespace Alumnos
         {
             Console.WriteLine("Choose the text format for new students.");
             Console.WriteLine(" (1) .txt");
-            Console.WriteLine(" (2) .json");
+            Console.WriteLine(" (2) .json"); 
             switch (Console.ReadLine())
             {
                 case "1":
-                    format = "txt";
+                    Environment.SetEnvironmentVariable("TextFormat_minus", "txt", EnvironmentVariableTarget.User);
                     break;
                 case "2":
-                    format = "json";
+                    Environment.SetEnvironmentVariable("TextFormat_minus", "json", EnvironmentVariableTarget.User);
                     break;
                 default:
-                    format = "";
+                    Environment.SetEnvironmentVariable("TextFormat_minus", "txt", EnvironmentVariableTarget.User);
                     break;
             }
         }
 
-        public static Alumno NewStudentMenu()
+        public static Alumno NewStudent()
         {
             Alumno al = null;
             string nom, dni;

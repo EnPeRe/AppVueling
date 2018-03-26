@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Alumnos.enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,6 @@ namespace Alumnos
 {
     class Program
     {
-        enum Options { NuevoAlumno=1, Configuracion, Salir}
 
         static void Main(string[] args)
         {
@@ -24,7 +24,7 @@ namespace Alumnos
                 switch (ChoosenMenu)
                 {
                     case Options.NuevoAlumno:
-                        AlController.AddStudent(UI.NewStudentMenu(), UI.format);
+                        AlController.AddStudent(UI.NewStudent(), Environment.GetEnvironmentVariable("TextFormat_minus", EnvironmentVariableTarget.User));
                         break;
                     case Options.Configuracion:
                         UI.ConfMenu();
