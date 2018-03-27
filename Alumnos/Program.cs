@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Alumnos
 {
@@ -15,6 +16,8 @@ namespace Alumnos
             Options ChoosenMenu;
             var continuar = true;
             var AlController = new AlumnoController();
+            string configformat = ConfigurationManager.AppSettings["TextFormat"].ToString();
+            var env_var_value = Environment.GetEnvironmentVariable(configformat, EnvironmentVariableTarget.User);
 
             do
             {
@@ -24,7 +27,7 @@ namespace Alumnos
                 switch (ChoosenMenu)
                 {
                     case Options.NuevoAlumno:
-                        AlController.AddStudent(UI.NewStudent(), Environment.GetEnvironmentVariable("TextFormat_minus", EnvironmentVariableTarget.User));
+                        AlController.AddStudent(UI.NewStudent(), env_var_value);
                         break;
                     case Options.Configuracion:
                         UI.ConfMenu();

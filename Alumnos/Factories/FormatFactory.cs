@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Alumnos.enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,12 @@ namespace Alumnos
     {
         public override IFormat CreateFormat(string type)
         {
-            switch (type)
+            Config Typ = (Config)Enum.Parse(typeof(Config), type);
+
+            switch (Typ)
             {
-                case "txt": return new FormatTxt();
-                case "json": return new FormatJson();
+                case Config.txt: return new FormatTxt();
+                case Config.json: return new FormatJson();
                 default: throw new ArgumentException("Invalid type", "type");
             }
         }

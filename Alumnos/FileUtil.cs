@@ -4,7 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Alumnos.enums
+namespace Alumnos
 {
-    enum Options { NuevoAlumno = 1, Configuracion, Salir }
+    class FileUtil
+    {
+        public void GetTxtPath()
+        {
+
+        }
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,26 @@ namespace Alumnos
     {
         public void AddToFile(Alumno al)
         {
-            string path = @"C:\Users\enric.pedros\Desktop\alumnes.json";
-            //File.WriteAllText(@"c:\movie.json", JsonConvert.SerializeObject(al));
+            //string path = @"C:\Users\enric.pedros\Desktop\alumnes.json";
+            string path = ConfigurationManager.AppSettings["ConfigPath"].ToString() + "alumnes.json";
+            //File.WriteAllText(@"c:\movie.json", JsonConvert.SerializeObject(al));           
 
-            // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText(path))
+            TextWriter writer;
+            using (writer = new StreamWriter(path, append: true))
             {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, al);
+                writer.WriteLine(al.ToJson());
             }
+
+            /*
+            // serialize JSON directly to a file
+            using (StreamWriter strw = File.CreateText(path))
+            {
+                //JsonSerializer serializer = new JsonSerializer();
+                //serializer.Serialize(strw, al);
+                strw.WriteLine(al.ToJson());
+            }
+            */
+
         }
     }
 }

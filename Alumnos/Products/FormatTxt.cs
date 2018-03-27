@@ -4,21 +4,31 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Alumnos
 {
-    class FormatTxt : IFormat
+    public class FormatTxt : IFormat
     {
         public void AddToFile(Alumno al)
         {
-            string path = @"C:\Users\enric.pedros\Desktop\alumnes.txt";
-            string stringtoappend = al.Nombre + "," + al.Id + "," + al.Edad + "," + al.Dni;
+            //string path = @"C:\Users\enric.pedros\Desktop\alumnes.txt";
+            string path = ConfigurationManager.AppSettings["ConfigPath"].ToString() + "alumnes.txt";
+            //string stringtoappend = al.Nombre + "," + al.Id + "," + al.Edad + "," + al.Dni + "," + al.Al_Guid;
             try
             {
                 // File.AppendAllText(path, toappend); + Environment.NewLine
-                using (StreamWriter str = File.AppendText(path))
+
+                if (File.Exists(path))
                 {
-                    str.WriteLine(stringtoappend);
+                    using (StreamWriter strw = File.AppendText(path))
+                    {
+                        strw.WriteLine(al.ToString());
+                    }
+                }
+                else
+                {
+
                 }
             }
             catch (Exception ex)
