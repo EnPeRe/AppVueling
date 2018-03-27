@@ -14,7 +14,7 @@ namespace Alumnos
         public void AddToFile(Alumno al)
         {
             //string path = @"C:\Users\enric.pedros\Desktop\alumnes.json";
-            string path = ConfigurationManager.AppSettings["ConfigPath"].ToString() + "alumnes.json";
+            string path = ConfigurationManager.AppSettings["ConfigPathJson"].ToString();
             //File.WriteAllText(@"c:\movie.json", JsonConvert.SerializeObject(al));           
 
             TextWriter writer;

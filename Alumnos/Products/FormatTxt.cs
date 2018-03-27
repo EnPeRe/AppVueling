@@ -13,7 +13,7 @@ namespace Alumnos
         public void AddToFile(Alumno al)
         {
             //string path = @"C:\Users\enric.pedros\Desktop\alumnes.txt";
-            string path = ConfigurationManager.AppSettings["ConfigPath"].ToString() + "alumnes.txt";
+            string path = ConfigurationManager.AppSettings["ConfigPathTxt"].ToString();
             //string stringtoappend = al.Nombre + "," + al.Id + "," + al.Edad + "," + al.Dni + "," + al.Al_Guid;
             try
             {

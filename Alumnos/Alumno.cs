@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,9 +68,8 @@ namespace Alumnos
 
         public string ToJson()
         {
-            //return base.ToString();
-            return "{\"Nombre\":\"" + this.Nombre + "\",\"Id\":" + this.Id + ",\"Edad\":" + this.Edad +
-                ",\"Dni\":\"" + this.Dni + "\",\"Guid\":" + this.Al_Guid + "}";
+            //return "{\"Nombre\":\"" + this.Nombre + "\",\"Id\":" + this.Id + ",\"Edad\":" + this.Edad + ",\"Dni\":\"" + this.Dni + "\",\"Guid\":" + this.Al_Guid + "}";
+            return JsonConvert.SerializeObject(this);
         }
     }
 }
